@@ -29,6 +29,7 @@ const ReadingsContainer = ({ metric }) => {
   const [readings, setReadings] = useState(null);
   const [range, setRange] = useState('day');
   const [period, setPeriod] = useState('minute');
+  const [toggle, setToggle] = useState(false);
 
   const classes = useStyles();
 
@@ -51,7 +52,7 @@ const ReadingsContainer = ({ metric }) => {
     }
 
     fetchReadings();
-  }, [metric, range, period]);
+  }, [metric, range, period, toggle]);
 
   const onRangeChanged = (e) => {
     setRange(e.target.value);
@@ -59,6 +60,10 @@ const ReadingsContainer = ({ metric }) => {
 
   const onPeriodChanged = (e) => {
     setPeriod(e.target.value);
+  };
+
+  const resetChart = () => {
+    setToggle((prevState) => !prevState);
   };
 
   if (loadingReadings) {
@@ -86,7 +91,7 @@ const ReadingsContainer = ({ metric }) => {
         </Select>
       </FormControl>
 
-      <AddReadingForm metricId={metric._id} />
+      <AddReadingForm metricId={metric._id} resetChart={resetChart} />
 
       <Typography variant="h6" gutterBottom>
         {`last updated at: ${readings.lastUpdated}`}

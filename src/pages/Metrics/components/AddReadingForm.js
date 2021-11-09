@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddReadingForm = ({ metricId }) => {
+const AddReadingForm = ({ metricId, resetChart }) => {
   const [addClicked, setAddClicked] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -52,6 +52,7 @@ const AddReadingForm = ({ metricId }) => {
       });
     } finally {
       setSubmitting(false);
+      resetChart();
     }
   };
 
@@ -121,6 +122,7 @@ const AddReadingForm = ({ metricId }) => {
 
 AddReadingForm.propTypes = {
   metricId: PropTypes.string.isRequired,
+  resetChart: PropTypes.func.isRequired,
 };
 
 export default AddReadingForm;
