@@ -39,6 +39,7 @@ const ReadingsContainer = ({ metric }) => {
     async function fetchReadings() {
       try {
         const fetchedReadings = await getReadings(metric._id, range, period);
+
         setReadings(fetchedReadings);
       } catch (error) {
         toast(`Error fetching "${metric.name}" readings, Please try later`, {
@@ -84,14 +85,16 @@ const ReadingsContainer = ({ metric }) => {
           <MenuItem value="day">Day</MenuItem>
         </Select>
       </FormControl>
+
       <AddReadingForm metricId={metric._id} />
+
       <Typography variant="h6" gutterBottom>
         {`last updated at: ${readings.lastUpdated}`}
       </Typography>
       <Typography variant="h6" gutterBottom>
         {data?.length === 0 && 'no chart data'}
       </Typography>
-      {data && data?.length > 0 ? <Chart data={data} period={period} /> : null}
+      {data && data?.length > 0 && <Chart data={data} period={period} />}
     </div>
   );
 };

@@ -40,7 +40,6 @@ const AddReadingForm = ({ metricId }) => {
   const submitForm = async (values, actions) => {
     setSubmitting(true);
     try {
-      // console.log({ ...values, metricId });
       await createReading({ ...values, metricId });
       toast('Reading added', {
         type: 'success',
