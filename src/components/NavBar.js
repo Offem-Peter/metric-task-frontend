@@ -16,14 +16,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 const NavBar = () => {
-  //   const location = useLocation();
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          {/* {location.pathname !== "/dashboard" ? <GoBackButton /> : null} */}
           <Link className={classes.link} to="/">
             <Typography variant="h6" className={classes.title}>
               Metrics Visualizer

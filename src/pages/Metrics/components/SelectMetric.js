@@ -25,7 +25,6 @@ const SelectMetric = ({ metrics, metricChanged }) => {
           <TextField {...params} variant="outlined" label="Select a metric" />
         )}
       />
-      {/* {loading && <LinearProgress />} */}
     </div>
   );
 };

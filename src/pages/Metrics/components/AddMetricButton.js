@@ -8,9 +8,6 @@ const useStyles = makeStyles((theme) => ({
     bottom: '20px',
     right: '20px',
   },
-  icon: {
-    marginRight: theme.spacing(1),
-  },
 }));
 
 const AddMetricButton = () => {
@@ -24,7 +21,5 @@ const AddMetricButton = () => {
     </Link>
   );
 };
-
-// AddMetricButton.displayName = 'CreateInputButton';
 
 export default AddMetricButton;

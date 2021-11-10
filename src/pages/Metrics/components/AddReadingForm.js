@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   actions: {
     alignItems: 'center',
   },
-  cancel: {
+  button: {
     marginLeft: '20px',
   },
 }));
@@ -86,7 +86,7 @@ const AddReadingForm = ({ metricId, resetChart }) => {
                 <div className={`${classes.formElement} ${classes.actions}`}>
                   <div className={classes.formContainer}>
                     <Button
-                      className={classes.cancel}
+                      className={classes.button}
                       type="submit"
                       variant="contained"
                       color="primary"
@@ -103,7 +103,7 @@ const AddReadingForm = ({ metricId, resetChart }) => {
                   </div>
 
                   <Button
-                    className={classes.cancel}
+                    className={classes.button}
                     onClick={() => {
                       setAddClicked(false);
                     }}
