@@ -27,8 +27,8 @@ const Chart = ({ data, period }) => {
           type="monotone"
           dataKey="average"
           stroke="#FF355E"
-          activeDot={{ r: 13 }}
-          dot={{ r: 10 }}
+          activeDot={{ r: 6 }}
+          dot={{ r: 3 }}
         />
         <Legend />
       </LineChart>

@@ -2,7 +2,9 @@
 
 ![metricshot](https://user-images.githubusercontent.com/32823698/140985582-d35ee684-e031-42f2-887f-16b54ca68c17.png)
 
-![metric](https://user-images.githubusercontent.com/32823698/140985415-7b5ec2e6-1aff-4843-a981-bc63758fcf02.png)
+![metricshot](https://user-images.githubusercontent.com/32823698/141189830-c04177d4-7074-4815-b2fc-a348c2f5c999.png)
+
+![hour](https://user-images.githubusercontent.com/32823698/141193027-64ba0d88-90de-4cbb-b4ff-092967274b49.png)
 
 ## Documentation in English
 

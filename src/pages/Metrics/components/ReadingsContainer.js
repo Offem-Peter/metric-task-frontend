@@ -1,18 +1,13 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Chart from './Chart';
 import Loader from '../../../components/Loader';
 import { getReadings } from '../../../services/api';
 import AddReadingForm from './AddReadingForm';
+import FiltersContainer from './FiltersContainer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +23,7 @@ const ReadingsContainer = ({ metric }) => {
   const [loadingReadings, setLoadingReadings] = useState(true);
   const [readings, setReadings] = useState(null);
   const [range, setRange] = useState('day');
-  const [period, setPeriod] = useState('minute');
+  const [period, setPeriod] = useState('second');
   const [toggle, setToggle] = useState(false);
 
   const classes = useStyles();
@@ -54,14 +49,6 @@ const ReadingsContainer = ({ metric }) => {
     fetchReadings();
   }, [metric, range, period, toggle]);
 
-  const onRangeChanged = (e) => {
-    setRange(e.target.value);
-  };
-
-  const onPeriodChanged = (e) => {
-    setPeriod(e.target.value);
-  };
-
   const resetChart = () => {
     setToggle((prevState) => !prevState);
   };
@@ -74,31 +61,26 @@ const ReadingsContainer = ({ metric }) => {
 
   return (
     <div className={classes.root}>
-      <FormControl size="small" variant="outlined">
-        <InputLabel>Range</InputLabel>
-        <Select value={range} onChange={onRangeChanged} label="Range">
-          <MenuItem value="day">Day</MenuItem>
-          <MenuItem value="week">Week</MenuItem>
-          <MenuItem value="month">Month</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl size="small" variant="outlined">
-        <InputLabel>Avg</InputLabel>
-        <Select value={period} onChange={onPeriodChanged} label="Avg">
-          <MenuItem value="minute">Minute</MenuItem>
-          <MenuItem value="hour">Hour</MenuItem>
-          <MenuItem value="day">Day</MenuItem>
-        </Select>
-      </FormControl>
+      <FiltersContainer
+        range={range}
+        period={period}
+        setRange={setRange}
+        setPeriod={setPeriod}
+      />
 
       <AddReadingForm metricId={metric._id} resetChart={resetChart} />
 
-      <Typography variant="h6" gutterBottom>
-        {`last updated at: ${readings.lastUpdated}`}
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        {data?.length === 0 && 'no chart data'}
-      </Typography>
+      {readings && (
+        <Typography variant="h6" gutterBottom>
+          {`last updated at: ${readings?.lastUpdatedAt}`}
+        </Typography>
+      )}
+      {data?.length === 0 && (
+        <Typography variant="h6" gutterBottom>
+          {'no chart data'}
+        </Typography>
+      )}
+
       {data && data?.length > 0 && <Chart data={data} period={period} />}
     </div>
   );
