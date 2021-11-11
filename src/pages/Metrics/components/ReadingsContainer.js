@@ -10,7 +10,7 @@ import { getReadings } from '../../../services/api';
 import AddReadingForm from './AddReadingForm';
 import FiltersContainer from './FiltersContainer';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     flexDirection: 'column',

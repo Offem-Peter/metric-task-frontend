@@ -9,7 +9,7 @@ import ReadingsContainer from './components/ReadingsContainer';
 import Loader from '../../components/Loader';
 import { getMetrics } from '../../services/api';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -48,7 +48,7 @@ const Metrics = () => {
     fetchMetrics();
   }, []);
 
-  const onMetricChanged = async (e, metric) => {
+  const onMetricChanged = (e, metric) => {
     if (metric) {
       setSelectedMetric(metric);
     } else {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { TextField, Button, CircularProgress } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -8,23 +8,15 @@ import { toast } from 'react-toastify';
 
 import AddReadingButton from './AddReadingButton';
 import { createReading } from '../../../services/api';
+import AddCancelButton from '../../../components/AddCancelButton';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     padding: '1rem',
   },
   formContainer: {
     position: 'relative',
     display: 'inline-block',
-  },
-  formElement: {
-    margin: '1rem',
-  },
-  actions: {
-    alignItems: 'center',
-  },
-  button: {
-    marginLeft: '20px',
   },
 }));
 
@@ -84,34 +76,10 @@ const AddReadingForm = ({ metricId, reloadChart }) => {
                   />
                 </div>
 
-                <div className={`${classes.formElement} ${classes.actions}`}>
-                  <div className={classes.formContainer}>
-                    <Button
-                      className={classes.button}
-                      type="submit"
-                      variant="contained"
-                      color="primary"
-                      disabled={submitting}
-                    >
-                      Add
-                    </Button>
-                    {submitting && (
-                      <CircularProgress
-                        size={24}
-                        className={classes.buttonProgress}
-                      />
-                    )}
-                  </div>
-
-                  <Button
-                    className={classes.button}
-                    onClick={() => {
-                      setAddClicked(false);
-                    }}
-                  >
-                    Cancel
-                  </Button>
-                </div>
+                <AddCancelButton
+                  submitting={submitting}
+                  cancelClicked={() => setAddClicked(false)}
+                />
               </Form>
             )}
           </Formik>

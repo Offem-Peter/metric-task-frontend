@@ -1,4 +1,5 @@
 import { Button } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const AddReadingButton = ({ addClicked, setAddClicked }) => {
   if (addClicked) {
@@ -17,6 +18,11 @@ const AddReadingButton = ({ addClicked, setAddClicked }) => {
       Add Reading
     </Button>
   );
+};
+
+AddReadingButton.propTypes = {
+  addClicked: PropTypes.bool.isRequired,
+  setAddClicked: PropTypes.func.isRequired,
 };
 
 export default AddReadingButton;

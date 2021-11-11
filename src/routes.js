@@ -4,11 +4,12 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Metrics from './pages/Metrics';
 import CreatePage from './pages/Create';
 
-export default function AppRoutes({ children }) {
+const AppRoutes = ({ children }) => {
   return (
     <Router>
       {children}
@@ -21,4 +22,10 @@ export default function AppRoutes({ children }) {
       </Routes>
     </Router>
   );
-}
+};
+
+AppRoutes.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default AppRoutes;

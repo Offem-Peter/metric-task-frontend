@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Fab, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     position: 'fixed',
     bottom: '20px',

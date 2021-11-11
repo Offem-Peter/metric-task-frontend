@@ -1,38 +1,17 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { TextField, Button, CircularProgress } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { toast } from 'react-toastify';
 
+import AddCancelButton from '../../../components/AddCancelButton';
 import { createMetric } from '../../../services/api';
 
 const useStyles = makeStyles((theme) => ({
   formElement: {
     margin: '30px',
-  },
-  actions: {
-    alignItems: 'center',
-  },
-  wrapper: {
-    position: 'relative',
-    display: 'inline-block',
-  },
-  buttonProgress: {
-    color: theme.palette.primary.main,
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    marginTop: -12,
-    marginLeft: -12,
-  },
-  button: {
-    marginLeft: '20px',
-  },
-  link: {
-    textDecoration: 'none',
-    color: theme.palette.primary.main,
   },
 }));
 
@@ -88,31 +67,7 @@ function CreateMetricForm() {
             />
           </div>
 
-          <div className={`${classes.formElement} ${classes.actions}`}>
-            <div className={classes.wrapper}>
-              <Button
-                className={classes.button}
-                type="submit"
-                variant="contained"
-                color="primary"
-                disabled={submitting}
-              >
-                Create
-              </Button>
-              {submitting && (
-                <CircularProgress
-                  size={24}
-                  className={classes.buttonProgress}
-                />
-              )}
-            </div>
-
-            <Button className={classes.button}>
-              <Link className={classes.link} to="/metrics">
-                Cancel
-              </Link>
-            </Button>
-          </div>
+          <AddCancelButton submitting={submitting} />
         </Form>
       )}
     </Formik>
