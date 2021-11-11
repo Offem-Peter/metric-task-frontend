@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { TextField, Button, CircularProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { toast } from 'react-toastify';
+
 import { createMetric } from '../../../services/api';
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: -12,
     marginLeft: -12,
   },
-  cancel: {
+  button: {
     marginLeft: '20px',
   },
   link: {
@@ -90,7 +91,7 @@ function CreateMetricForm() {
           <div className={`${classes.formElement} ${classes.actions}`}>
             <div className={classes.wrapper}>
               <Button
-                className={classes.cancel}
+                className={classes.button}
                 type="submit"
                 variant="contained"
                 color="primary"
@@ -106,7 +107,7 @@ function CreateMetricForm() {
               )}
             </div>
 
-            <Button className={classes.cancel}>
+            <Button className={classes.button}>
               <Link className={classes.link} to="/metrics">
                 Cancel
               </Link>

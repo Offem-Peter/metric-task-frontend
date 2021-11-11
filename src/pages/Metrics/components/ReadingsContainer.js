@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
 import Chart from './Chart';
 import Loader from '../../../components/Loader';
 import { getReadings } from '../../../services/api';
@@ -49,7 +50,7 @@ const ReadingsContainer = ({ metric }) => {
     fetchReadings();
   }, [metric, range, period, toggle]);
 
-  const resetChart = () => {
+  const reloadChart = () => {
     setToggle((prevState) => !prevState);
   };
 
@@ -68,7 +69,7 @@ const ReadingsContainer = ({ metric }) => {
         setPeriod={setPeriod}
       />
 
-      <AddReadingForm metricId={metric._id} resetChart={resetChart} />
+      <AddReadingForm metricId={metric._id} reloadChart={reloadChart} />
 
       {readings && (
         <Typography variant="h6" gutterBottom>

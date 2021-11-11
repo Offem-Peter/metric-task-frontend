@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import { toast } from 'react-toastify';
+
 import AddMetricButton from './components/AddMetricButton';
 import SelectMetric from './components/SelectMetric';
 import ReadingsContainer from './components/ReadingsContainer';
@@ -20,12 +21,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1rem',
     display: 'block',
     width: '100%',
-  },
-  chartsContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 }));
 

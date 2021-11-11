@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
+
 import AddReadingButton from './AddReadingButton';
 import { createReading } from '../../../services/api';
 
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddReadingForm = ({ metricId, resetChart }) => {
+const AddReadingForm = ({ metricId, reloadChart }) => {
   const [addClicked, setAddClicked] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -52,7 +53,7 @@ const AddReadingForm = ({ metricId, resetChart }) => {
       });
     } finally {
       setSubmitting(false);
-      resetChart();
+      reloadChart();
     }
   };
 
@@ -122,7 +123,7 @@ const AddReadingForm = ({ metricId, resetChart }) => {
 
 AddReadingForm.propTypes = {
   metricId: PropTypes.string.isRequired,
-  resetChart: PropTypes.func.isRequired,
+  reloadChart: PropTypes.func.isRequired,
 };
 
 export default AddReadingForm;
