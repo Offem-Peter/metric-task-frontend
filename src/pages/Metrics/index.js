@@ -56,9 +56,7 @@ const Metrics = () => {
     }
   };
 
-  if (loadingMetrics) {
-    return <Loader text="Fetching metrics" />;
-  }
+  if (loadingMetrics) return <Loader text="Fetching metrics" />;
 
   return (
     <div className={classes.root}>

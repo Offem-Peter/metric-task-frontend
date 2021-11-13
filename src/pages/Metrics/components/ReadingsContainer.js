@@ -54,9 +54,8 @@ const ReadingsContainer = ({ metric }) => {
     setToggle((prevState) => !prevState);
   };
 
-  if (loadingReadings) {
+  if (loadingReadings)
     return <Loader text={`Fetching ${metric.name} readings`} />;
-  }
 
   const data = readings?.data;
 

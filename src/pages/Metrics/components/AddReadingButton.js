@@ -2,9 +2,7 @@ import { Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const AddReadingButton = ({ addClicked, setAddClicked }) => {
-  if (addClicked) {
-    return null;
-  }
+  if (addClicked) return null;
 
   return (
     <Button
