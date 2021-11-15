@@ -27,7 +27,7 @@ const AddReadingForm = ({ metricId, reloadChart }) => {
   const classes = useStyles();
 
   const validationSchema = Yup.object().shape({
-    value: Yup.string().required('Value is Required'),
+    value: Yup.number().required('Value is Required'),
   });
 
   const submitForm = async (values, actions) => {
